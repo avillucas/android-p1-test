@@ -40,7 +40,7 @@ public class ProductoListaVista implements RecyclerViewInterface {
     @Override
     public void onItemClick(int posicion) {
         Intent intencion = new Intent(this.actividad, ProductoModificarActivity.class);
-        intencion.putExtra("POSITION", posicion);
+        intencion.putExtra(ProductoModificarActivity.posicionActivityParameter, posicion);
         this.actividad.startActivity(intencion);
     }
 }

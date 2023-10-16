@@ -28,7 +28,6 @@ public class ProductoListarActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityProductoListarBinding actividadProductoListar;
-    private ActivityProductoListarBinding actividadProductoModificar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

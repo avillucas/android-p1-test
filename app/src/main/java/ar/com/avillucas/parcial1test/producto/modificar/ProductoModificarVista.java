@@ -1,5 +1,6 @@
 package ar.com.avillucas.parcial1test.producto.modificar;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,20 +20,14 @@ public class ProductoModificarVista {
 
     ProductoModificarControlador controlador;
 
-    public ProductoModificarVista() {
-    }
-
-    public ProductoModificarVista(Producto producto, Activity activity) {
-        this.producto = producto;
+    public ProductoModificarVista( Activity activity) {
         this.activity = activity;
     }
 
-    public ProductoModificarControlador getControlador() {
-        return controlador;
-    }
 
     public void setControlador(ProductoModificarControlador controlador) {
         this.controlador = controlador;
+        this.producto = this.controlador.traerProductoActual();
         this.cargarElementos();
     }
 
@@ -40,6 +35,7 @@ public class ProductoModificarVista {
         this.txtNombre = activity.findViewById(R.id.txtNombre);
         this.txtCantidad = activity.findViewById(R.id.txtCantidad);
         this.txtPrecio = activity.findViewById(R.id.txtPrecio);
+        this.mostrarModelo();
         this.btnSave = activity.findViewById(R.id.bnSave);
         btnSave.setOnClickListener(controlador);
     }
@@ -50,10 +46,10 @@ public class ProductoModificarVista {
         producto.setPrecio(Float.parseFloat(txtPrecio.getText().toString()));
     }
 
+    @SuppressLint("DefaultLocale")
     public void mostrarModelo() {
         txtNombre.setText(producto.getNombre());
-        //TODO el aplicar el locale desde la clase quizá
-        txtCantidad.setText(producto.getCantidad().toString());
-        txtPrecio.setText(producto.getPrecio().toString());
+        txtCantidad.setText(String.format("%d",producto.getCantidad()));
+        txtPrecio.setText(String.format("%.2f",producto.getPrecio()));
     }
 }

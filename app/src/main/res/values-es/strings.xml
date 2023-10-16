@@ -11,4 +11,6 @@
     <string name="hintPrecio">10.0</string>
     <string name="btnSave">Guardar</string>
     <string name="invalidMessage">¡¡ La validación falló !!</string>
+    <string name="amount">Cantidad: </string>
+    <string name="price">Precio: </string>
 </resources>
